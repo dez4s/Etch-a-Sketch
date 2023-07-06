@@ -1,0 +1,35 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #aaa;
+}
+
+.container {
+    border: 1px solid red;
+    width: 50%;
+    min-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+} 
+
+.boxes {
+    width: 6.25%;
+}
+
+.red {
+    background-color: red;
+}
+
+
+
