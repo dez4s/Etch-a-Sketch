@@ -1,6 +1,8 @@
 const container = document.querySelector('.container');
-const btn = document.querySelector('#size');
+const slider = document.querySelector('#size');
+const paraSize = document.querySelector('.range-number');
 let gridSize = 16;
+paraSize.textContent = `${gridSize}`;
 
 function createGrid(size) {
     for (i = 0; i < size; i++) {
@@ -27,12 +29,14 @@ function createGrid(size) {
 
 createGrid(gridSize);
 
-btn.addEventListener('click', e => {
-    inputNumber = Number(prompt('Please enter a new grid size', 16));
-    inputNumber ? gridSize = inputNumber : alert('Please enter a valid number');
+slider.addEventListener('change', e => {
+    // inputNumber = Number(prompt('Please enter a new grid size', 16));
+    // inputNumber ? gridSize = inputNumber : alert('Please enter a valid number'); // for button on click event handler only
+    gridSize = e.currentTarget.value;
     const newContainer = document.createElement('div');
-    document.body.replaceChild(newContainer, document.querySelector('.container'));
+    document.querySelector('.big-container').replaceChild(newContainer, document.querySelector('.container'));
     newContainer.classList.add('container');
+    paraSize.textContent = `${gridSize}`;
     createGrid(gridSize);
 });
 
