@@ -1,7 +1,10 @@
 const container = document.querySelector('.container');
 const slider = document.querySelector('#size');
 const paraSize = document.querySelector('.range-number');
-let gridSize = 16;
+const colorPicker = document.querySelector('input[type="color"]');
+
+let gridSize = 16; // default gridSize
+let colorHolder = '#c60000'; //default color
 paraSize.textContent = `${gridSize}`;
 
 function createGrid(size) {
@@ -14,18 +17,20 @@ function createGrid(size) {
             div.classList.add('boxes');
             line.appendChild(div);
         }
-    }
+    } // create i lines with j divs on each line
+
     const grid = document.querySelectorAll('.boxes');
 
     grid.forEach(box => {
         box.addEventListener('mouseenter', changeColor);
-    });
-
-    function changeColor(e) {
-        if (e.buttons == 1) e.target.classList.add('red');
-        e.preventDefault();
-    }   
+    }); // change color on mouseenter event
 }
+
+function changeColor(e) {
+    if (e.buttons == 1) e.target.style.backgroundColor = colorHolder;
+    e.preventDefault();
+}   
+
 
 createGrid(gridSize);
 
@@ -40,3 +45,7 @@ slider.addEventListener('change', e => {
     createGrid(gridSize);
 });
 
+
+colorPicker.addEventListener('input', e => {
+    colorHolder = e.target.value;  
+});
