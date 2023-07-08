@@ -4,7 +4,7 @@ const paraSize = document.querySelector('.range-number');
 const colorPicker = document.querySelector('input[type="color"]');
 
 let gridSize = 16; // default gridSize
-let colorHolder = '#c60000'; //default color
+let colorHolder = 'black'; //default color
 paraSize.textContent = `${gridSize}`;
 
 function createGrid(size) {
