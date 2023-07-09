@@ -12,11 +12,9 @@ const colorContainer = document.querySelector('.color-container');
 const text = document.createElement('p');
 text.textContent = 'Disabled';
 
-
 let gridSize = 16; // default gridSize
 let colorHolder = 'black'; //default color
 paraSize.textContent = `${gridSize}`;
-
 
 function createGrid(size) {
     for (i = 0; i < size; i++) {
@@ -36,7 +34,6 @@ function createGrid(size) {
     }); // change color on mouseenter event
 }
 
-
 function changeColor(e) {
     if (e.buttons == 1 && !rainbowOn && !fadeBlack) { 
         e.target.style.backgroundColor = colorHolder;
@@ -44,12 +41,16 @@ function changeColor(e) {
         colorHolder = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
         e.target.style.backgroundColor = colorHolder;
     } else if (e.buttons == 1 && fadeBlack) {
-        colorHolder = 'grey';
         e.target.style.backgroundColor = colorHolder;
+       
+       let currBrightness = parseFloat(window.getComputedStyle(e.target).getPropertyValue('filter').split('').filter(e => {
+           if(e >= 0) return true;
+        }).join('.'));
+
+        e.target.style.setProperty('filter', `brightness(${currBrightness * 0.9})`);
     }
     e.preventDefault();
 }   
-
 
 createGrid(gridSize);
 
@@ -100,6 +101,7 @@ blackBtn.addEventListener('click', (e) => {
     rainbowOn = 0;
     randomBtn.classList.replace('rainbow', 'noRainbow');
     if (!fadeBlack) {
+        colorHolder = '#F5F5F5';
         fadeBlack = 1;
         e.currentTarget.classList.replace('noFadeBlack', 'fadeBlack');      
         if (Array.from(colorContainer.children).includes(colorPicker)) {

@@ -40,7 +40,7 @@ header {
             conic-gradient(from 116deg at 97% 9%, #331422 0%, #8bcaf5 60.65%, #d939bc 100%) 3% 17%/146% 153%;
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    padding: 0.3rem;
+    padding: 0.31rem;
 } 
 
 .menu {
@@ -189,7 +189,6 @@ input[type="color"] {
     cursor: pointer; 
 }
 
-
 .lines {
     display: flex;
     flex: 1;
@@ -197,6 +196,7 @@ input[type="color"] {
 
 .boxes {
     flex: 1;
+    filter: brightness(1);
 }
 
 footer {
@@ -216,12 +216,4 @@ footer {
         min-height: 40%;
     }
 }
-
-/* .test {
-    width: 2rem;
-    min-height: 2rem;
-    border: 1px solid red;
-    background-color: white;
-    filter: brightness(0);
-} */
 
