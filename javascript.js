@@ -37,6 +37,7 @@ function createGrid(size) {
 function changeColor(e) {
     if (e.buttons == 1 && !rainbowOn && !fadeBlack) { 
         e.target.style.backgroundColor = colorHolder;
+        e.target.style.setProperty('filter', `brightness(1)`)
     } else if (e.buttons == 1 && rainbowOn) {
         colorHolder = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
         e.target.style.backgroundColor = colorHolder;
