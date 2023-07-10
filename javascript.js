@@ -40,6 +40,8 @@ function changeColor(e) {
         e.target.style.setProperty('filter', `brightness(1)`)
     } else if (e.buttons == 1 && rainbowOn) {
         colorHolder = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+        e.target.style.setProperty('filter', `brightness(1)`);
+        console.log(e.target.style.getPropertyValue('filter'));
         e.target.style.backgroundColor = colorHolder;
     } else if (e.buttons == 1 && fadeBlack) {
         e.target.style.backgroundColor = colorHolder;
@@ -52,7 +54,6 @@ function changeColor(e) {
     }
     e.preventDefault();
 }   
-
 createGrid(gridSize);
 
 slider.addEventListener('change', e => {
